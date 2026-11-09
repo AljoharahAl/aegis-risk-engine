@@ -26,6 +26,15 @@ src/          source code
 ```
 
 ## Setup
+
+### Option 1: Docker (recommended)
+```
+docker build -t aegis-risk-engine .
+docker run -p 8888:8888 aegis-risk-engine
+```
+Then open the URL printed in the terminal (it contains a token).
+
+### Option 2: Local
 ```
 pip install -r requirements.txt
 ```
