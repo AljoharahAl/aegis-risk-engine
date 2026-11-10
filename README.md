@@ -24,7 +24,20 @@ db/           SQL files
 notebooks/    exploratory data analysis
 src/          source code
 ```
+## Database
 
+PostgreSQL runs in Docker. The schema separates raw and processed data:
+
+| Table | Purpose |
+|-------|---------|
+| `raw.credit_data` | Original data, loaded as-is (missing values kept) |
+| `processed.credit_data` | Cleaned data used for model training |
+
+```
+cp .env.example .env        # then set a password in .env
+docker compose up -d        # starts PostgreSQL and creates the tables
+python src/ingestion.py     # loads 150,000 rows into raw.credit_data
+```
 ## Setup
 
 ### Option 1: Docker (recommended)
